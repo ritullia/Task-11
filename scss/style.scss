@@ -30,10 +30,11 @@ body {
     color: var(--main-text-color);
 
     div {
+      width: 100%;
       display: flex;
       margin-top: 50px;
       margin-left: 15%;
-      margin-right: 13%;
+      // border: 1px solid var(--main-text-color);
 
       #btn {
         width: 120px;
@@ -44,6 +45,56 @@ body {
         border: var(--main-color);
         font-size: 18px;
         box-shadow: 0px 2px 3px #151516;
+      }
+    }
+
+    .table-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      h2 {
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+      .output {
+        display: flex;
+        #skills {
+          width: 60%;
+          background-color: var(--main-color);
+          flex-direction: row;
+          border-collapse: collapse;
+          font-family: Arial, Helvetica, sans-serif;
+
+          thead {
+            background-color: var(--main-color);
+
+            th {
+              padding: 8px;
+              color: var(--main-text-color);
+              border-bottom: 1px solid var(--main-text-color);
+            }
+          }
+
+          .table-body {
+            tr {
+              th {
+                background-color: #53556e;
+                padding: 12px;
+                .btn-delete {
+                  width: 80px;
+                  padding: 4px;
+                  border-radius: 2px;
+                  background-color: #812c20;
+                  color: var(--main-text-color);
+                  border: var(--main-color);
+                  font-size: 12px;
+                  box-shadow: 0px 2px 3px #151516;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
