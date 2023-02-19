@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
-    <script src="./scripts.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <script src="./add.js" defer></script>
+    <link rel="stylesheet" href="./css/add.css">
     <title>Task 11</title>
 </head>
 
@@ -21,14 +21,17 @@
     </header>
     <main id="main-wrapper">
         <div>
-            <button id="btn">Add a skill</button>
+            <button id="btn-view">View skills</button>
         </div>
-        <div>
+        <div class="skills-section">
             <h2>
-                Skills that are important for a developer:
+                Add skill:
             </h2>
-            <div id="output">
-
+            <div id="input">
+                <input type="text" name="skill-input">
+            </div>
+            <div class="btn-div">
+                <button id="btn-view">Add skill</button>
             </div>
         </div>
     </main>
