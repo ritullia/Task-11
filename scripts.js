@@ -1,46 +1,61 @@
-
-
 console.log("Veikia");
 
-BASE_URL = 'https://melon-potent-period.glitch.me/skills';
+BASE_URL = 'https://melon-potent-period.glitch.me/';
 
-let data = [];
+let data;
 console.log(BASE_URL)
 
 
-fetch(BASE_URL + '/', {
+fetch(BASE_URL + '/skills', {
     method: "GET",
     headers: { 'Content-Type': 'application/json' }
 })
     .then((response) => response.json())
     .then((result) => {
-        console.log(result);
-        data = result; //susigrazinam kintamaji
-        drawTable(data); // paleidziame funkcija i fetch duomen pasiemimui
+        //susigrazinam kintamaji
+        drawTable(result); // paleidziame funkcija i fetch duomen pasiemimui
     })
     .catch((error) => console.error(error));
 
-function drawTable(skillsArr) {
+function drawTable(data) {
 
     let mainSkillsTable = document.getElementById('skills');
 
-    skillsArr.forEach(data => {
-        console.log(data)
+    data.forEach(item => {
+        console.log(item)
         let tBody = document.createElement("tbody");
         tBody.classList.add('table-body')
 
         let trEl = document.createElement('tr');
         trEl.classList.add('tr-row')
         let thElm = document.createElement("th");
-        thElm.textContent = data.id;
+        thElm.textContent = item.id;
         // console.log(data.id)
         let thElmSec = document.createElement("th");
-        thElmSec.textContent = data.skill;
+        thElmSec.textContent = item.skill;
         let thElmBtn = document.createElement("th");
-        thElmBtn.textContent = data.action;
+        thElmBtn.textContent = item.action;
         let deletBtn = document.createElement("button");
         deletBtn.textContent = "Delete";
         deletBtn.classList.add("btn-delete");
+
+        async function deleteSkill() {
+            console.log("Delete from FRONT END")
+            await fetch(BASE_URL + '/skill/' + item.id, {
+                method: "DELETE",
+                body: JSON.stringify(),
+            })
+                .then(response => {
+                    response.json();
+                    alert("Item was deleted!!!")
+                })
+                .then(() =>
+                    location.reload()
+                )
+                .catch(error => console.log(error))
+        }
+
+
         deletBtn.addEventListener("click", deleteSkill);
         thElmBtn.append(deletBtn);
         trEl.append(thElm, thElmSec, thElmBtn);
@@ -49,29 +64,8 @@ function drawTable(skillsArr) {
 
     });
 
-    console.log(skillsArr);
-    return data
-
-
+    console.log(data);
 }
-
-
-async function deleteSkill(data, id) {
-    console.log("Delete from FRONT END")
-    await fetch(BASE_URL + '/' + data.id, {
-        method: "DELETE",
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(({ id }) => id),
-    })
-        .then(response => response.json())
-        .then(data => console.log(id))
-        .catch(error => console.log(error))
-}
-
-
 
 
 document.getElementById("btn").addEventListener('click', () => {
