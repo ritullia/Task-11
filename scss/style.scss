@@ -1,9 +1,10 @@
 :root {
-  --main-color: #4c4c52;
-  --main-text-color: #fff;
+  --main-color: #a39382;
+  --main-text-color: #e6e3de;
+  --main-btn-color: #08403f;
 }
 body {
-  background-color: #21233f;
+  background-color: #c4bcb7;
 
   #container {
     width: 100%;
@@ -27,7 +28,6 @@ body {
 
   #main-wrapper {
     width: 100%;
-    color: var(--main-text-color);
 
     div {
       width: 100%;
@@ -40,10 +40,10 @@ body {
         width: 120px;
         padding: 8px;
         border-radius: 8px;
-        background-color: var(--main-color);
+        background-color: var(--main-btn-color);
         color: var(--main-text-color);
-        border: var(--main-color);
-        font-size: 18px;
+        border: var(--main-btn-color);
+        font-size: 14px;
         box-shadow: 0px 2px 3px #151516;
       }
     }
@@ -56,9 +56,12 @@ body {
       h2 {
         font-size: 18px;
         letter-spacing: 1px;
+        color: var(--main-btn-color);
+        font-weight: 600;
       }
       .output {
         display: flex;
+        color: var(--main-text-color);
         #skills {
           width: 60%;
           background-color: var(--main-color);
@@ -79,13 +82,13 @@ body {
           .table-body {
             tr {
               th {
-                background-color: #53556e;
+                background-color: var(--main-btn-color);
                 padding: 12px;
                 .btn-delete {
                   width: 80px;
                   padding: 4px;
                   border-radius: 2px;
-                  background-color: #812c20;
+                  background-color: #96483d;
                   color: var(--main-text-color);
                   border: var(--main-color);
                   font-size: 12px;
