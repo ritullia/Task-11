@@ -1,6 +1,6 @@
 console.log("Veikia")
 
-BASE_URL = 'https://melon-potent-period.glitch.me/skills';
+BASE_URL = 'https://melon-potent-period.glitch.me';
 
 async function sendData() {
 
@@ -10,7 +10,7 @@ async function sendData() {
         skill: skill,
     };
 
-    const response = await fetch(BASE_URL, {
+    const response = await fetch(BASE_URL + '/' + 'skills', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -19,7 +19,7 @@ async function sendData() {
     });
 
     if (response.ok === true) {
-        alert('Skill successfully added');
+        alert('Skill successfully added!!!');
         window.location.href = "./index.html"
     } else {
         alert('ERROR')
