@@ -60,7 +60,7 @@ async function deleteSkill() {
 
     console.log("DELETE from FRONT-END");
 
-    await fetch(BASE_URL + '/' + data, {
+    await fetch(BASE_URL + '/' + data.id, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify()
