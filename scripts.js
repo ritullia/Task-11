@@ -56,9 +56,19 @@ function drawTable(skillsArr) {
 }
 
 
-function deleteSkill(skillArr) {
+async function deleteSkill(data) {
     console.log("Delete from FRONT END")
-
+    await fetch(BASE_URL + '/' + data.id, {
+        method: "DELETE",
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data[id]),
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
 }
 
 
