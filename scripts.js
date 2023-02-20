@@ -2,14 +2,13 @@
 
 console.log("Veikia");
 
-BASE_URL = 'https://melon-potent-period.glitch.me';
+BASE_URL = 'https://melon-potent-period.glitch.me/skills';
 
-let data;
+let data = [];
 console.log(BASE_URL)
 
 
-
-fetch(BASE_URL + '/' + 'skills', {
+fetch(BASE_URL + '/', {
     method: "GET",
     headers: { 'Content-Type': 'application/json' }
 })
@@ -31,9 +30,10 @@ function drawTable(skillsArr) {
         tBody.classList.add('table-body')
 
         let trEl = document.createElement('tr');
+        trEl.classList.add('tr-row')
         let thElm = document.createElement("th");
         thElm.textContent = data.id;
-        console.log(data.id)
+        // console.log(data.id)
         let thElmSec = document.createElement("th");
         thElmSec.textContent = data.skill;
         let thElmBtn = document.createElement("th");
@@ -50,25 +50,25 @@ function drawTable(skillsArr) {
     });
 
     console.log(skillsArr);
+    return data
 
 
 }
 
-console.log(data);
-
 
 async function deleteSkill() {
+
     console.log("DELETE from FRONT-END");
 
-    await fetch(BASE_URL + '/' + 'skills' + '/' + data.id, {
+    await fetch(BASE_URL + '/' + data, {
         method: "DELETE",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify()
     })
         .then((response) => { response.json() })
-        .then((data) => { console.log(data) })
-
-
+        .then((data) => { console.log(data) }
+        )
+        .catch((error) => { console.log(error, "Can't accses the data") })
 }
 
 
