@@ -1,9 +1,10 @@
 :root {
-  --main-color: #4c4c52;
-  --main-text-color: #fff;
+  --main-color: #a39382;
+  --main-text-color: #e6e3de;
+  --main-btn-color: #08403f;
 }
 body {
-  background-color: #21233f;
+  background-color: #c4bcb7;
 
   #container {
     width: 100%;
@@ -31,6 +32,7 @@ body {
 
     div {
       display: flex;
+      flex-direction: column;
       margin-top: 50px;
       margin-left: 15%;
       margin-right: 13%;
@@ -39,21 +41,42 @@ body {
         width: 120px;
         padding: 8px;
         border-radius: 8px;
-        background-color: var(--main-color);
+        background-color: var(--main-btn-color);
         color: var(--main-text-color);
-        border: var(--main-color);
-        font-size: 18px;
+        border: var(--main-btn-color);
+        font-size: 14px;
         box-shadow: 0px 2px 3px #151516;
       }
       #btn-add {
         width: 120px;
         padding: 8px;
         border-radius: 8px;
-        background-color: var(--main-color);
+        background-color: var(--main-btn-color);
         color: var(--main-text-color);
-        border: var(--main-color);
-        font-size: 18px;
+        border: var(--main-btn-color);
+        font-size: 14px;
         box-shadow: 0px 2px 3px #151516;
+      }
+    }
+    .skills-section {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        margin-left: 14%;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        letter-spacing: 1.5px;
+        color: var(--main-btn-color);
+      }
+
+      #input {
+        #skill-input {
+          width: 340px;
+          height: 30px;
+          border: #a39382;
+          border-radius: 8px;
+        }
       }
     }
   }
